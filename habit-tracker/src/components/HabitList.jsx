@@ -9,20 +9,30 @@ const HabitList = ({ habits, onEditHabit, onDeleteHabit }) => {
   };
 
   return (
-    <div className="habit-list">
-      <h2>Your Habits</h2>
+    <div style={{ marginTop: "20px" }}>
+      <h2
+        style={{ fontSize: "24px", fontWeight: "bold", marginBottom: "10px" }}
+      >
+        Your Habits
+      </h2>
       {habits.map((habit) => (
-        <div key={habit.id}>
+        <div key={habit.id} style={{ marginBottom: "10px" }}>
           <div
-            className={`habit-list-item ${
-              selectedHabit && selectedHabit.id === habit.id ? "selected" : ""
-            }`}
+            style={{
+              backgroundColor:
+                selectedHabit && selectedHabit.id === habit.id
+                  ? "#f0f0f0"
+                  : "transparent",
+              padding: "10px",
+              borderRadius: "5px",
+              cursor: "pointer",
+            }}
             onClick={() => handleSelectHabit(habit)}
           >
             <h3>{habit.name}</h3>
           </div>
           {selectedHabit && selectedHabit.id === habit.id && (
-            <div className="habit-details">
+            <div style={{ marginTop: "10px" }}>
               <HabitTracker
                 habit={habit}
                 onEdit={onEditHabit}

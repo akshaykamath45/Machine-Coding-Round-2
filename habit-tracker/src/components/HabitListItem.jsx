@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 
 const HabitListItem = ({ habit, onEdit, onDelete }) => {
   const handleEdit = (e) => {
@@ -12,15 +12,15 @@ const HabitListItem = ({ habit, onEdit, onDelete }) => {
   };
 
   return (
-    <div className="habit-list-item" onClick={(e) => { e.stopPropagation(); }}>
+    <div
+      onClick={(e) => {
+        e.stopPropagation();
+      }}
+    >
       <h3>{habit.name}</h3>
-      <div className="habit-actions">
-        <button className="edit-habit-button" onClick={handleEdit}>
-          Edit
-        </button>
-        <button className="delete-habit-button" onClick={handleDelete}>
-          Delete
-        </button>
+      <div>
+        <button onClick={handleEdit}>Edit</button>
+        <button onClick={handleDelete}>Delete</button>
       </div>
     </div>
   );
